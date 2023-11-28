@@ -11,110 +11,112 @@
       href="https://fonts.googleapis.com/css2?family=Syne:wght@500&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://unpkg.com/transition-style" />
+    <title>Home</title>
   </head>
-  <body class="body">
+  <body>
     <header>
       <div class="header">
         <nav class="navbar">
-          <a href="index.html"><div class="logo-text">UX/UI PORTFOLIO</div></a>
+          <a href="index.html"><div class="logo-text">Måns Lindblom</div></a>
+          <span class="hamburger-icon" data-lucide="menu" id="hamburgerIcon">
+            <i class="menu"></i>
+          </span>
           <ul class="navbar-list-container">
-            <a href="#projects">Work</a>
-            <a href="#about">About</a>
-            <a href="Contact">Contact</a>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
       </div>
     </header>
+
     <section id="section1">
       <div class="hero">
-        <h1>Måns<br />Lindblom</h1>
+        <h1>
+          This is a<br />
+          Design portfolio
+        </h1>
       </div>
       <div class="imagecontainer">
-        <img class="heroimg" src="Images/JAGIGEN.svg" alt="" />
+        <img
+          class="heroimg"
+          src="Images/warm.svg"
+          alt="a drawing that kinda looks like a blue snake"
+        />
       </div>
-
-      <!--<div class="arrowcontainer"><div class="arrow-button"><i class="arrow-down" data-lucide="arrow-down" style="color: white;"></i></div></div>-->
     </section>
     <section id="projects" class="projects">
       <div class="container">
-        <h2>Work</h2>
-        <p class="intro">
+        <h3>Work</h3>
+        <p>
           I have a passion for creating innovative,<br />aestetichally pleasing
           and functionall designs.
         </p>
       </div>
       <div class="project-container">
-        <div class="project">
-          <a href="enda.html">
+        <article class="project">
+          <a href="enda.html" onclick="changePage('enda.html')">
             <div class="image-wrapper">
               <img
-                src="Images/Onboarding Page.jpg"
-                alt="Project 1"
+                src="Images/enda.svg"
+                alt="a screen on a little pedistal, the backround is a livingroom envoirment with plants."
                 class="responsive-image"
               />
             </div>
           </a>
-          <article class="project-text-container">
-            <h2>ENDA</h2>
-            <div class="project-text">Environmental e-commerce</div>
-          </article>
-        </div>
-
-        <div class="project">
+          <h3>ENDA</h3>
+          <p>Environmental e-commerce</p>
+        </article>
+        <article class="project">
           <a href="nordsoul.html">
             <div class="image-wrapper">
               <img
-                src="/Images/nord soul.jpg"
-                alt="Project 2"
+                src="/Images/2.svg"
+                alt="a picture with the company name and a screen from an application"
                 class="responsive-image"
               />
             </div>
           </a>
-          <article class="project-text-container">
-            <h2>Nord Soul Power</h2>
-            <div class="project-text">App for Virtual reality tours</div>
-          </article>
-        </div>
+          <h3>Nordic 360°</h3>
+          <p>App for Virtual reality tours</p>
+        </article>
       </div>
 
       <div class="project-container">
-        <div class="project">
+        <article class="project">
           <a href="tiqet.html">
             <div class="image-wrapper">
               <img
-                src="Images/tiqet.jpg"
-                alt="Project 3"
+                src="Images/tiqet1.svg"
+                alt="a picture of a laptop with a website on it, the backround is orange"
                 class="responsive-image"
               />
             </div>
           </a>
-          <article class="project-text-container">
-            <h2>Tiqet</h2>
-            <div class="project-text">Case management system</div>
-          </article>
-        </div>
+          <h3>Tiqet</h3>
+          <p>Case management system</p>
+        </article>
 
-        <div class="project">
+        <article class="project">
           <a href="university.html">
             <div class="image-wrapper">
               <img
-                src="Images/A&D.jpg"
-                alt="Project 4"
+                src="Images/Simple Clean Phone Mockup Season Discount Instagram Post.svg"
+                alt="a picture of a login screen from an application and to the left of it is the companys name"
                 class="responsive-image"
               />
             </div>
           </a>
-          <article class="project-text-container">
-            <h2>University of Art & Design</h2>
-            <div class="project-text">Education application for mobile</div>
-          </article>
-        </div>
+          <h3>University of Art & Design</h3>
+          <p>E-learning app with a niche</p>
+        </article>
       </div>
     </section>
 
     <section class="less-important-work">
       <div class="project-line">
-        <h3>Unaeon</h3>
+        <h4>Unaeon</h4>
         <i class="plus" data-lucide="plus" style="color: #cc333d"></i>
       </div>
       <div class="panel">
@@ -124,7 +126,7 @@
         </p>
       </div>
       <div class="project-line">
-        <h3>Småtrollen</h3>
+        <h4>Småtrollen</h4>
         <i class="plus" data-lucide="plus" style="color: #cc333d"></i>
       </div>
       <div class="panel">
@@ -134,7 +136,7 @@
         </p>
       </div>
       <div class="project-line">
-        <h3>Västtrafik</h3>
+        <h4>Västtrafik</h4>
         <i class="plus" data-lucide="plus" style="color: #cc333d"></i>
       </div>
       <div class="panel">
@@ -147,38 +149,85 @@
 
     <section id="about" class="about">
       <div class="container-second">
-        
         <div class="middleimg">
-          <img src="Images/jag2 1.svg" alt="jag" class="responsive-image" />
+          <img
+            src="Images/jag2 2.svg"
+            alt="Måns smiles at the camera, hes wearing a t-shirt so that you can see hes tattoos"
+            class="responsive-image-no-hover"
+          />
         </div>
       </div>
       <div class="container-second">
-        <h2>About</h2>
-        <p class="intro">
-          I’m a design student from Hälsingland, Sweden. I’m currently studying
-          UX/UI design at IT-Högskolan in Gothenburg. As a former construction
-          worker and proffesional drummer, i’ve always been a creative person
-          who appreciates details and aestetics. After many years working as a
-          social worker, i’ve learned to always put humans and their individual
-          needs first. And now, as a design student, i get to combine these
-          characteristics in natural and fluent way.
-        </p>
-        <h3>Services</h3>
-        <h3>Work experience</h3>
+        <article class="work-wrap">
+          <h4>About</h4>
+          <p>
+            I’m a design student from Hälsingland, Sweden. I’m currently
+            studying UX/UI design at IT-Högskolan in Gothenburg. As a former
+            construction worker and proffesional drummer, i’ve always been a
+            creative person who appreciates details and aestetics. After many
+            years working as a social worker, i’ve learned to always put humans
+            and their individual needs first. And now, as a design student, i
+            get to combine these characteristics in natural and fluent way.
+          </p>
+        </article>
+        <article class="work-wrap">
+          <h4>Services</h4>
+          <p>UX/UI Design</p>
+          <p>Webdesign</p>
+          <p>UX research</p>
+        </article>
+        <article class="work-wrap">
+          <h4>Work experience</h4>
+          <article class="work-experience">
+            <article class="work-text-wrap">
+              <p>Qrew</p>
+              <p>UX/UI Designer</p>
+            </article>
+            <p>2022 - ongoing</p>
+          </article>
+          <article class="work-experience">
+            <article class="work-text-wrap">
+              <p>Göteborgsstad</p>
+              <p>Social Worker</p>
+            </article>
+            <p>2017 - 2022</p>
+          </article>
+          <article class="work-experience">
+            <article class="work-text-wrap">
+              <p>IF Skadeförsäkringar</p>
+              <p>Office manager</p>
+            </article>
+            <p>2017 - 2018</p>
+          </article>
+          <article class="work-experience">
+            <article class="work-text-wrap">
+              <p>Pelly Butiksinredning</p>
+              <p>Construction worker</p>
+            </article>
+            <p>2013 - 2015</p>
+          </article>
+        </article>
       </div>
     </section>
 
-    <section class="contact">
-      <p class="big-ass-text">
-        GOTHENBURG, 42139 VÄSTRA FRÖLUNDA 0706167536 MANS.LINDBLOM@QREW.SE
-        <a href="linkedin.se" class="big-ass-text">LINKEDIN</a>
-      </p>
+    <section class="contact" id="contact">
+      <article class="flex">
+        <h2>
+          GOTHENBURG <br />
+          42139, VÄSTRA FRÖLUNDA <br />
+          0706167536 <br />
+          MANS.LINDBLOM@QREW.SE
+          <a href="www.linkedin.com/in/måns-lindblom-a9677b178"
+            ><h2 class="linkedin-hover">LINKEDIN</h2></a
+          >
+        </h2>
+      </article>
     </section>
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
       lucide.createIcons();
     </script>
+    <script src="/script.js"></script>
   </body>
-  <script src="/script.js"></script>
 </html>

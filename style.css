@@ -1,5 +1,7 @@
 @import "/node_modules/animate.css/source/rotating_entrances/rotateIn.css";
 @font-face {
+  font-family: "FormulaCondensed";
+  src: url("font/FormulaCondensed-Bold.otf") format("woff2");
   font-family: "Strenounus";
   src: url("Fonts/strenuous 3d.otf") format("woff2"), url("Fonts/strenuous 3d.otf") format("truetype"); /* Older Browsers */
   font-weight: normal;
@@ -8,9 +10,9 @@
 body,
 html {
   height: 100%;
-  margin-left: 16px;
-  margin-right: 16px;
-  background-color: #F4E1BE;
+  width: 100%;
+  background-color: #F7EBD9;
+  margin: 0px;
 }
 
 .button {
@@ -32,7 +34,7 @@ html {
 }
 
 .button:hover {
-  background-color: yellow;
+  background-color: blue;
   color: #C21420;
   border-color: #C21420;
 }
@@ -47,16 +49,16 @@ ol {
 
 h2 {
   font-family: "Syne", sans-serif;
-  font-size: 32px;
+  font-size: clamp(2rem, 6dvw, 7rem);
   font-weight: 600;
   color: #C21420;
   margin: 0px;
-  line-height: 36px;
+  line-height: 108%;
 }
 
 h3 {
-  margin-top: 20px;
-  font-size: 24px;
+  margin-top: 0px;
+  font-size: 32px;
   font-family: "Syne", sans-serif;
   line-height: 36px;
   color: #C21420;
@@ -64,15 +66,15 @@ h3 {
 
 h4 {
   font-family: "Syne", sans-serif;
-  margin-top: 10px;
-  font-size: 18px;
+  margin: 0;
+  font-size: 24px;
   line-height: 24px;
   color: #C21420;
 }
 
 h5 {
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 20px;
   color: #C21420;
 }
@@ -89,8 +91,8 @@ a {
   text-decoration: none;
   cursor: pointer;
   font-family: "Syne", sans-serif;
-  font-weight: 600;
-  font-size: 22px;
+  font-weight: 400;
+  font-size: 20px;
   color: #C21420;
 }
 
@@ -98,53 +100,104 @@ a {
   display: flex;
   width: auto;
   height: 100vh;
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
   justify-content: space-between;
+}
+@media (max-width: 768px) {
+  #section1 {
+    flex-direction: column;
+    margin-top: 100px;
+  }
 }
 
 .imagecontainer {
   display: flex;
   align-items: flex-end;
+  margin-bottom: 0;
+}
+@media (max-width: 768px) {
+  .imagecontainer {
+    justify-content: center;
+    align-items: flex-start;
+  }
 }
 
 a:hover {
-  color: rgb(245, 220, 0);
-  font-size: 26px;
+  color: blue;
+  font-size: 20px;
 }
 
+/* Your existing styles */
 .header {
-  padding-bottom: 10px;
+  padding-bottom: 0px;
   width: 100%;
-  border-bottom: 5px solid #C21420;
+  border-bottom: 3px solid #C21420;
   position: fixed;
   top: 0;
-  left: 0px;
-  background-color: #F4E1BE;
+  left: 0;
+  background-color: #F7EBD9; /* Fix the typo in the property name */
   align-self: flex-start;
   z-index: 1;
 }
 
 .navbar {
-  margin-top: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  padding: 10px; /* Adjust as needed */
+}
+@media (max-width: 888px) {
+  .navbar {
+    align-items: flex-start;
+  }
 }
 
 .logo-text {
   font-family: strenounus;
-  font-style: normal;
-  font-size: 2.5rem;
-  color: #C21420;
+  font-size: 2rem; /* Adjust as needed */
 }
 
+.hamburger-icon {
+  display: none; /* Hide the icon by default */
+  /* Add additional styles as needed */
+  cursor: pointer; /* Add cursor style for interaction */
+  color: #C21420;
+  height: 32px;
+  width: 32px;
+}
+
+/* Styles for the navigation menu here */
 .navbar-list-container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   gap: 30px;
   align-items: baseline;
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
 }
 
+.navbar-list-container li {
+  margin-right: 20px; /* Adjust as needed */
+}
+
+@media (max-width: 888px) {
+  .hamburger-icon {
+    display: inline-block; /* Show the icon only when the screen width is 720px or less */
+  }
+  .navbar-list-container {
+    display: none; /* Hide the navigation menu by default only when screen width is 720px or less */
+    flex-direction: column; /* Stack menu items vertically */
+  }
+  .navbar.show .navbar-list-container {
+    display: flex; /* Show the navigation menu when the show class is applied */
+  }
+  .navbar.show .hamburger-icon {
+    display: none; /* Hide the icon when the show class is applied */
+  }
+}
 .image-container {
   display: flex;
   justify-content: flex-end;
@@ -153,8 +206,16 @@ a:hover {
 }
 
 .heroimg {
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: auto;
+  margin-bottom: 50px;
+}
+@media (max-width: 768px) {
+  .heroimg {
+    width: 80%;
+    height: 50%;
+    margin-bottom: 0;
+  }
 }
 
 .image-container {
@@ -178,8 +239,6 @@ a:hover {
 @media (min-width: 391px) {
   .hero {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     width: auto;
     padding-top: 0px;
     height: auto;
@@ -190,8 +249,6 @@ a:hover {
 @media (max-width: 390px) {
   .hero {
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
     padding-top: 0px;
     height: auto;
     margin-bottom: 50px;
@@ -199,7 +256,7 @@ a:hover {
     width: auto;
   }
 }
-@media (min-width: 340px) {
+@media (min-width: 390px) {
   h1 {
     font-family: strenounus;
     font-size: clamp(4rem, 11dvw, 11rem);
@@ -208,35 +265,12 @@ a:hover {
     margin: 0;
   }
 }
-.arrowcontainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 50px;
-}
-
-.arrow-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 50px;
-  height: 50px;
-  padding: 20px;
-  background-color: #C21420;
-  border-radius: 100px;
-}
-
 .projects {
   display: flex;
   flex-direction: column;
-  border-top: 3px solid #C21420;
-}
-
-.project-text {
-  font-family: "Syne", sans-serif;
-  color: #C21420;
-  font-size: 18px;
+  border-top: 2px solid #C21420;
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
 }
 
 .container {
@@ -245,6 +279,11 @@ a:hover {
   margin-bottom: 80px;
   padding-top: 10px;
 }
+@media (max-width: 768px) {
+  .container {
+    margin-bottom: 10px;
+  }
+}
 
 .container-second {
   display: flex;
@@ -252,6 +291,11 @@ a:hover {
   margin-bottom: 80px;
   padding-top: 10px;
   align-items: flex-start;
+}
+@media (max-width: 768px) {
+  .container-second {
+    margin-bottom: 10px;
+  }
 }
 
 .project {
@@ -266,6 +310,11 @@ a:hover {
   flex-direction: column;
 }
 
+.project:hover {
+  gap: 10px;
+  transition: 500ms ease-in-out;
+}
+
 .project-container {
   display: flex;
   width: 100%;
@@ -274,6 +323,11 @@ a:hover {
   margin-bottom: 25px;
   flex-direction: row;
 }
+@media (max-width: 997px) {
+  .project-container {
+    flex-direction: column;
+  }
+}
 
 .arrow-down {
   width: 42px;
@@ -281,7 +335,7 @@ a:hover {
 }
 
 .project-line {
-  border-bottom: 3px solid #C21420;
+  border-bottom: 2px solid #C21420;
   display: flex;
   align-items: center;
   width: 100%;
@@ -310,18 +364,15 @@ h3 {
   width: 42px;
 }
 
-.responsive-image {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
+.responsive-image:hover {
+  transform: scale(1.1);
+  transition: 500ms ease-in-out;
 }
 
-.image-wrap {
-  max-width: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.responsive-image-no-hover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers its container */
 }
 
 .project-text-container {
@@ -344,11 +395,20 @@ h3 {
 }
 
 .about {
+  padding-top: 50px;
   margin-top: 100px;
-  border-top: 3px solid #C21420;
+  border-top: 2px solid #C21420;
   display: flex;
   justify-content: space-between;
   gap: 50px;
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
+}
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    gap: 0;
+  }
 }
 
 .aboutcontainer {
@@ -356,14 +416,16 @@ h3 {
   justify-content: space-between;
 }
 
+/*
 .intro {
   width: 500px;
   font-family: "Syne", sans-serif;
-  font-size: 22px;
-  color: #C21420;
+  font-size: 18px;
+  color: $primary-color;
   margin: 0px;
+  line-height: 1.2;
 }
-
+*/
 .project-line:hover .plus {
   display: inline-block;
   cursor: pointer;
@@ -376,51 +438,25 @@ h3 {
   cursor: pointer;
 }
 
+.project-line.active {
+  border-bottom: none;
+}
+
 .panel {
   display: none;
   overflow: hidden;
   max-height: 0;
   overflow: hidden;
   transition: max-height 2s ease-out;
+  border-bottom: solid 2px #C21420;
+  padding-bottom: 10px;
 }
 
 .text-wrap {
   padding-bottom: 10px;
   width: 100%;
   display: flex;
-  -moz-column-gap: 3rem;
-       column-gap: 3rem;
-}
-
-.cv-first {
-  border-top: 3px solid #C21420;
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.cv-text {
-  font-family: "Syne", sans-serif;
-  font-size: 24px;
-  color: #C21420;
-  width: 400px;
-  margin: 10px;
-}
-
-.cv-second {
-  border-top: 3px solid #C21420;
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-  margin: 0px auto;
-}
-
-.cv-third {
-  border-top: 3px solid #C21420;
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-  margin-left: auto;
+  column-gap: 3rem;
 }
 
 .aboutme {
@@ -429,23 +465,29 @@ h3 {
 
 p {
   font-family: "Syne", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   color: #C21420;
-  width: 100%;
-  height: auto;
   margin: 0px;
 }
 
 .project-section {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   position: sticky;
-  top: 150px;
+  top: 0px;
   float: left;
   overflow: hidden;
   width: 100%;
+  height: 100vh;
   margin-top: 0;
+  justify-content: space-between;
+}
+@media (max-width: 997px) {
+  .project-section {
+    flex-direction: column;
+    position: relative;
+    gap: 0;
+  }
 }
 
 .image-container {
@@ -455,12 +497,19 @@ p {
 
 .section-container {
   display: flex;
-  margin-top: 50px;
+  margin-top: 0px;
   justify-content: space-between;
   align-items: flex-start;
-  width: 100%;
   height: auto;
   gap: 40px;
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
+}
+@media (max-width: 997px) {
+  .section-container {
+    flex-direction: column;
+    gap: 0;
+  }
 }
 
 .project-images {
@@ -469,6 +518,7 @@ p {
   gap: 20px;
   align-items: flex-end;
   width: 100%;
+  margin-top: 60px;
 }
 
 .project-img-small {
@@ -483,12 +533,12 @@ p {
 }
 
 .image-wrap {
-  background-image: url("Images/A&D big pic.svg");
   background-size: cover;
   background-position: center;
-  height: 100vh;
-  width: calc(100% + 60px);
-  margin-left: -30px;
+  height: 92vh;
+  width: 100vw;
+  margin-left: 0;
+  box-sizing: border-box;
 }
 
 .text-block {
@@ -504,17 +554,101 @@ p {
 .responsive-image {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover; /* Ensures the image covers its container */
+  object-fit: cover; /* Ensures the image covers its container */
 }
 
 .image-wrapper {
-  width: 100%; /* Set the width of the container */
-  height: 400px; /* Set the desired height for the images */
-  max-width: 100%;
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
   overflow: hidden;
 }
 
 .big-ass-text {
-  font-size: 6rem;
-}/*# sourceMappingURL=style.css.map */
+  font-size: 8rem;
+  font-weight: bold;
+}
+
+/* Extra Small Devices (phones) */
+@media (max-width: 576px) {
+  .big-ass-text {
+    font-size: 2rem;
+  }
+}
+/* Small Devices (tablets) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .big-ass-text {
+    font-size: 2.5rem;
+  }
+}
+/* Medium Devices (laptops) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .big-ass-text {
+    font-size: 3.5rem;
+  }
+}
+/* Large Devices (desktops) */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .big-ass-text {
+    font-size: 4.5rem;
+  }
+}
+/* Extra Large Devices (large desktops) */
+@media (min-width: 1201px) {
+  .big-ass-text {
+    font-size: 6rem;
+  }
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100vw;
+}
+
+.less-important-work {
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
+}
+
+.contact {
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
+  border-top: solid 2px #C21420;
+}
+
+.service-wrap {
+  margin-bottom: 20px;
+}
+
+.project-description {
+  padding-top: 20px;
+}
+
+.work-experience {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.work-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.work-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.linkedin-hover:hover {
+  color: blue;
+}
+
+/*# sourceMappingURL=style.css.map */
